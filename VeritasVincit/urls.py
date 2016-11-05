@@ -14,7 +14,6 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import url, include
-from blog.views import MyBlogListView
 from blog.models import MyBlog
 from django.contrib import admin
 admin.autodiscover()
@@ -22,5 +21,5 @@ admin.autodiscover()
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls, name='admin-site'),
-    url(r'^$', MyBlogListView.as_view(), name='blog_list'),
+    url(r'', include('blog.urls')),
 ]
